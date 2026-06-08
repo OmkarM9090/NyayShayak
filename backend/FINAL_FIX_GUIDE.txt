@@ -35,7 +35,7 @@ Step 2: Update .env File
 Location: backend/.env
 
 Replace:
-GEMINI_API_KEY=AIzaSyDBGS9wKRBmrRBt5QhuQ4Spelkd8P0c22o
+GEMINI_API_KEY=
 
 With your NEW key:
 GEMINI_API_KEY=[YOUR_NEW_KEY_HERE]

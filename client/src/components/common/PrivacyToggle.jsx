@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 export default function PrivacyToggle({ value, onChange, disabled = false }) {
+  const { t } = useTranslation();
   const isPrivate = value === "private";
 
   return (
@@ -14,7 +17,7 @@ export default function PrivacyToggle({ value, onChange, disabled = false }) {
         }`}
         aria-pressed={!isPrivate}
       >
-        Save
+        {t("common.save")}
       </button>
       <button
         type="button"
@@ -27,7 +30,7 @@ export default function PrivacyToggle({ value, onChange, disabled = false }) {
         }`}
         aria-pressed={isPrivate}
       >
-        Private
+        {t("common.private")}
       </button>
     </div>
   );

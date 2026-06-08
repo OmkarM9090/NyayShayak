@@ -4,12 +4,32 @@
     "signIn": "साइन इन"
   },
   "header": {
-    "plan": "प्रोफेशनल प्लान"
+    "plan": "प्रोफेशनल प्लान",
+    "logout": "लॉगआउट"
   },
   "settings": {
     "title": "सेटिंग्स",
     "preferences": "प्राधान्ये",
     "language": "भाषा"
+  },
+  "sidebar": {
+    "today": "आज",
+    "noChatsToday": "आज अजून चॅट नाहीत.",
+    "previous7Days": "मागील 7 दिवस",
+    "noRecentChats": "अलीकडील चॅट नाहीत.",
+    "omniTitle": "Nyay Sahayak Omni",
+    "omniDescription": "चॅट, विश्लेषण आणि FIR ड्राफ्टिंगसाठी एकत्रित कायदेशीर सहाय्यक."
+  },
+  "common": {
+    "save": "सेव्ह",
+    "private": "प्रायव्हेट",
+    "privateModeChat": "प्रायव्हेट मोड चॅट इतिहास सेव्ह करत नाही.",
+    "privateModeAnalysis": "प्रायव्हेट मोड विश्लेषण इतिहास सेव्ह करत नाही.",
+    "privateModeFir": "प्रायव्हेट मोड FIR इतिहास सेव्ह करत नाही.",
+    "guestLimitChat": "गेस्ट मर्यादा: 3 संदेश.",
+    "guestLimitAnalysis": "गेस्ट मर्यादा: 1 विश्लेषण.",
+    "guestLimitFir": "गेस्ट मर्यादा: 1 FIR.",
+    "loginToContinue": "पुढे सुरू ठेवण्यासाठी कृपया लॉगिन करा"
   },
   "chat": {
     "title": "Nyay Sahayak कायदेशीर सहाय्यक",
@@ -23,7 +43,29 @@
     "loading": "संबंधित कायदेशीर माहिती शोधून उत्तर तयार केले जात आहे...",
     "disclaimer": "AI मार्गदर्शन अंतिम कायदेशीर सल्ला नाही. तातडीच्या बाबींमध्ये वकील किंवा स्थानिक अधिकाऱ्यांशी संपर्क करा.",
     "errorMessage": "सहाय्यक सध्या उपलब्ध नाही. कृपया थोड्या वेळाने प्रयत्न करा.",
-    "errorGuidance": "प्रकरण तातडीचे असल्यास कायदेशीर तज्ज्ञाशी संपर्क करा."
+    "errorGuidance": "प्रकरण तातडीचे असल्यास कायदेशीर तज्ज्ञाशी संपर्क करा.",
+    "newChat": "नवीन चॅट",
+    "recentChats": "अलीकडील चॅट्स",
+    "noHistory": "अजून चॅट इतिहास नाही.",
+    "attached": "जोडलेले",
+    "contextUsed": "RAG संदर्भ वापरला",
+    "generalGuidance": "सामान्य कायदेशीर मार्गदर्शन",
+    "legalGuidance": "कायदेशीर मार्गदर्शन",
+    "rules": "नियम",
+    "penalties": "दंड",
+    "suspiciousClauses": "संशयास्पद कलमे",
+    "topRisks": "मुख्य धोके",
+    "warnings": "इशारे",
+    "whatYouShouldDo": "तुम्ही काय करावे",
+    "actionPlan": "कृती योजना",
+    "quantifiedImpact": "मोजता येणारा परिणाम",
+    "applicableLaws": "लागू कायदे",
+    "legalValidityFlags": "कायदेशीर वैधता संकेत",
+    "risk": "धोका",
+    "suggestions": {
+      "seeSteps": "पायऱ्या पहा",
+      "analyzeDocument": "दस्तऐवज विश्लेषण करा"
+    }
   },
   "fir": {
     "title": "FIR / तक्रार जनरेटर",
@@ -35,5 +77,19 @@
     "copy": "कॉपी",
     "copied": "कॉपी झाले",
     "download": "PDF डाउनलोड करा"
+  },
+  "analyze": {
+    "engineTitle": "स्वयंचलित कायदेशीर दस्तऐवज विश्लेषण",
+    "briefHeading": "दस्तऐवजाचा मुख्य गोषवारा",
+    "risksFoundLabel": "दुरुस्तीयोग्य त्रुटी आणि धोके",
+    "zeroRisksMessage": "पडताळणी यशस्वी: कोणतेही धोके किंवा त्रुटी आढळल्या नाहीत.",
+    "awaitingUploadTitle": "कोणताही विश्लेषण अहवाल सक्रिय नाही",
+    "awaitingUploadDesc": "कृपया तुमचे कायदेशीर दस्तऐवज येथे अपलोड करा. आमचे AI इंजिन त्रुटी आणि नियमांचे त्वरित स्कॅनिंग करेल.",
+    "uploadHint": "दस्तऐवज फाईल निवडा",
+    "dockPlaceholder": "दस्तऐवज अपलोड होण्याची वाट पाहत आहे...",
+    "dockProcessing": "विश्लेषण करत आहे...",
+    "dockExecute": "विश्लेषण सुरू करा",
+    "noFileError": "कृपया आधी एक दस्तऐवज अपलोड करा.",
+    "genericError": "दस्तऐवज विश्लेषण अहवाल तयार करण्यात अयशस्वी."
   }
 }

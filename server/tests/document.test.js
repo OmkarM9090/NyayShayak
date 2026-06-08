@@ -38,6 +38,7 @@ jest.unstable_mockModule("../services/aiService.js", () => ({
     contextCount: 0,
   }),
   detectDocumentType: () => "legal",
+  chunkText: (text) => [text],
   extractTextFromDocx: async () => ({ text: "docx", method: "mammoth-docx" }),
   generateFirDraft: async () => "FIR DRAFT TEXT",
   extractNumericTokens: () => [],

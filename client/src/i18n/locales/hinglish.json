@@ -4,12 +4,32 @@
     "signIn": "Sign In"
   },
   "header": {
-    "plan": "Professional Plan"
+    "plan": "Professional Plan",
+    "logout": "Logout"
   },
   "settings": {
     "title": "Settings",
     "preferences": "Preferences",
     "language": "Language"
+  },
+  "sidebar": {
+    "today": "Today",
+    "noChatsToday": "Aaj koi chat nahi hai.",
+    "previous7Days": "Previous 7 Days",
+    "noRecentChats": "Recent chats nahi hain.",
+    "omniTitle": "Nyay Sahayak Omni",
+    "omniDescription": "Chat, analysis, aur FIR drafting ke liye unified legal assistant."
+  },
+  "common": {
+    "save": "Save",
+    "private": "Private",
+    "privateModeChat": "Private mode chat history save nahi karta.",
+    "privateModeAnalysis": "Private mode analysis history save nahi karta.",
+    "privateModeFir": "Private mode FIR history save nahi karta.",
+    "guestLimitChat": "Guest limit: 3 messages.",
+    "guestLimitAnalysis": "Guest limit: 1 analysis.",
+    "guestLimitFir": "Guest limit: 1 FIR.",
+    "loginToContinue": "Continue karne ke liye login kijiye"
   },
   "chat": {
     "title": "RAG Legal Chatbot",
@@ -23,7 +43,29 @@
     "loading": "Relevant legal context fetch karke answer prepare ho raha hai...",
     "disclaimer": "AI guidance final legal opinion nahi hai. Urgent matters ke liye lawyer ya local authorities se baat karein.",
     "errorMessage": "Assistant abhi available nahi hai. Thodi der baad try kijiye.",
-    "errorGuidance": "Agar issue urgent hai to legal expert se consult karein."
+    "errorGuidance": "Agar issue urgent hai to legal expert se consult karein.",
+    "newChat": "New Chat",
+    "recentChats": "Recent Chats",
+    "noHistory": "Abhi chat history nahi hai.",
+    "attached": "Attached",
+    "contextUsed": "RAG context used",
+    "generalGuidance": "General legal guidance",
+    "legalGuidance": "Legal Guidance",
+    "rules": "Rules",
+    "penalties": "Penalties",
+    "suspiciousClauses": "Suspicious Clauses",
+    "topRisks": "Top Risks",
+    "warnings": "Warnings",
+    "whatYouShouldDo": "Aapko kya karna chahiye",
+    "actionPlan": "Action Plan",
+    "quantifiedImpact": "Quantified Impact",
+    "applicableLaws": "Applicable Laws",
+    "legalValidityFlags": "Legal Validity Flags",
+    "risk": "Risk",
+    "suggestions": {
+      "seeSteps": "Steps dekhein",
+      "analyzeDocument": "Document analyze karein"
+    }
   },
   "fir": {
     "title": "FIR / Complaint Generator",

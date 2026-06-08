@@ -5,7 +5,7 @@ import { connectTestDb, clearTestDb, closeTestDb } from "./helpers/testDb.js";
 import { createUserAndToken } from "./helpers/auth.js";
 
 jest.unstable_mockModule("../services/geminiChat.js", () => ({
-  generateLegalChatResponse: async () => ({
+  processLegalChat: async () => ({
     reply: "Safe response",
     suggestions: [],
     contextUsed: false,

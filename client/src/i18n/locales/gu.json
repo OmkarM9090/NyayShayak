@@ -1,0 +1,79 @@
+{
+  "appName": "Nyay Sahayak",
+  "auth": {
+    "signIn": "સાઇન ઇન"
+  },
+  "header": {
+    "plan": "પ્રોફેશનલ પ્લાન",
+    "logout": "લોગઆઉટ"
+  },
+  "settings": {
+    "title": "સેટિંગ્સ",
+    "preferences": "પસંદગીઓ",
+    "language": "ભાષા"
+  },
+  "sidebar": {
+    "today": "આજે",
+    "noChatsToday": "આજે હજી કોઈ ચેટ નથી.",
+    "previous7Days": "પાછલા 7 દિવસ",
+    "noRecentChats": "કોઈ તાજેતરની ચેટ નથી.",
+    "omniTitle": "Nyay Sahayak Omni",
+    "omniDescription": "ચેટ, વિશ્લેષણ અને FIR ડ્રાફ્ટિંગ માટે એકીકૃત કાનૂની સહાયક."
+  },
+  "common": {
+    "save": "સેવ",
+    "private": "પ્રાઇવેટ",
+    "privateModeChat": "પ્રાઇવેટ મોડ ચેટ ઇતિહાસ સેવ કરતું નથી.",
+    "privateModeAnalysis": "પ્રાઇવેટ મોડ વિશ્લેષણ ઇતિહાસ સેવ કરતું નથી.",
+    "privateModeFir": "પ્રાઇવેટ મોડ FIR ઇતિહાસ સેવ કરતું નથી.",
+    "guestLimitChat": "ગેસ્ટ મર્યાદા: 3 સંદેશા.",
+    "guestLimitAnalysis": "ગેસ્ટ મર્યાદા: 1 વિશ્લેષણ.",
+    "guestLimitFir": "ગેસ્ટ મર્યાદા: 1 FIR.",
+    "loginToContinue": "ચાલુ રાખવા માટે કૃપા કરીને લોગિન કરો"
+  },
+  "chat": {
+    "title": "Nyay Sahayak કાનૂની સહાયક",
+    "subtitle": "AI કાનૂની માર્ગદર્શન, દસ્તાવેજ વિશ્લેષણ અને FIR મદદ એક જ જગ્યાએ",
+    "example": "ઉદાહરણ: \"મારો ફોન ચોરી ગયો છે. હવે શું કરું?\"",
+    "initialExplanation": "નમસ્તે. હું તમારો કાનૂની સહાયક છું. તમે રેલવે નિયમો, મિલકત કરાર અથવા ચોરી વિશે પ્રશ્નો પૂછી શકો છો.",
+    "initialRule1": "સ્પષ્ટ અને ચોક્કસ પ્રશ્ન પૂછો.",
+    "initialRule2": "તમને ભારતીય સંદર્ભમાં વ્યવહારુ માર્ગદર્શન મળશે.",
+    "initialGuidance": "મામલો તાત્કાલિક હોય તો વકીલ અથવા સ્થાનિક અધિકારીઓનો સંપર્ક કરો.",
+    "placeholder": "તમારો કાનૂની પ્રશ્ન અહીં લખો...",
+    "loading": "સંબંધિત કાનૂની માહિતી શોધીને જવાબ તૈયાર થાય છે...",
+    "disclaimer": "AI માર્ગદર્શન અંતિમ કાનૂની સલાહ નથી. તાત્કાલિક બાબતોમાં વકીલ અથવા સ્થાનિક અધિકારીઓનો સંપર્ક કરો.",
+    "errorMessage": "સહાયક હાલમાં ઉપલબ્ધ નથી. કૃપા કરીને ફરી પ્રયત્ન કરો.",
+    "newChat": "નવી ચેટ",
+    "recentChats": "તાજેતરની ચેટ્સ",
+    "noHistory": "હજી ચેટ ઇતિહાસ નથી.",
+    "contextUsed": "RAG સંદર્ભ વપરાયો",
+    "generalGuidance": "સામાન્ય કાનૂની માર્ગદર્શન",
+    "legalGuidance": "કાનૂની માર્ગદર્શન",
+    "rules": "નિયમો",
+    "penalties": "દંડ",
+    "suspiciousClauses": "શંકાસ્પદ કલમો",
+    "topRisks": "મુખ્ય જોખમો",
+    "warnings": "ચેતવણીઓ",
+    "whatYouShouldDo": "તમારે શું કરવું",
+    "actionPlan": "ક્રિયા યોજના",
+    "quantifiedImpact": "માપી શકાય તેવી અસર",
+    "applicableLaws": "લાગુ કાયદા",
+    "legalValidityFlags": "કાનૂની માન્યતા સૂચકો",
+    "risk": "જોખમ",
+    "suggestions": {
+      "seeSteps": "પગલાં જુઓ",
+      "analyzeDocument": "દસ્તાવેજ વિશ્લેષણ કરો"
+    }
+  },
+  "fir": {
+    "title": "FIR / ફરિયાદ જનરેટર",
+    "subtitle": "તમારી સમસ્યા સરળ ભાષામાં લખો અને તૈયાર ફરિયાદ મેળવો.",
+    "placeholder": "ઘટનાની વિગતો સરળ ભાષામાં લખો...",
+    "generate": "FIR બનાવો",
+    "generating": "AI તૈયાર કરી રહ્યું છે...",
+    "generatedTitle": "તૈયાર FIR ડ્રાફ્ટ",
+    "copy": "કોપી",
+    "copied": "કોપી થયું",
+    "download": "PDF ડાઉનલોડ કરો"
+  }
+}

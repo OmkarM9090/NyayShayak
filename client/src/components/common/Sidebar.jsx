@@ -1,5 +1,6 @@
 import { MessageSquarePlus } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function groupChatsByWindow(chats = []) {
   const now = new Date();
@@ -20,6 +21,7 @@ function groupChatsByWindow(chats = []) {
 }
 
 export default function Sidebar({ recentChats = [], onNewChat }) {
+  const { t } = useTranslation();
   const { today, previous } = groupChatsByWindow(recentChats);
 
   return (
@@ -30,16 +32,16 @@ export default function Sidebar({ recentChats = [], onNewChat }) {
         className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-indigo-300 transition hover:bg-white/10"
       >
         <MessageSquarePlus size={18} />
-        New Chat
+        {t("chat.newChat")}
       </Link>
 
       <div className="mt-8 flex-1 space-y-8 overflow-y-auto pr-1">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Today</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{t("sidebar.today")}</p>
           <div className="mt-3 space-y-2">
             {today.length === 0 ? (
               <div className="rounded-xl border border-white/5 bg-white/5 px-3 py-2 text-xs text-slate-500">
-                No chats yet today.
+                {t("sidebar.noChatsToday")}
               </div>
             ) : (
               today.map((chat) => (
@@ -62,11 +64,11 @@ export default function Sidebar({ recentChats = [], onNewChat }) {
         </div>
 
         <div>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Previous 7 Days</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{t("sidebar.previous7Days")}</p>
           <div className="mt-3 space-y-2">
             {previous.length === 0 ? (
               <div className="rounded-xl border border-white/5 bg-white/5 px-3 py-2 text-xs text-slate-500">
-                No recent chats.
+                {t("sidebar.noRecentChats")}
               </div>
             ) : (
               previous.map((chat) => (
@@ -87,9 +89,9 @@ export default function Sidebar({ recentChats = [], onNewChat }) {
       </div>
 
       <div className="mt-8 rounded-2xl border border-indigo-500/10 bg-indigo-600/5 p-4">
-        <p className="text-[11px] font-semibold text-indigo-300">Nyay Sahayak Omni</p>
+        <p className="text-[11px] font-semibold text-indigo-300">{t("sidebar.omniTitle")}</p>
         <p className="mt-2 text-[11px] text-slate-500">
-          Unified legal assistant for chat, analysis, and FIR drafting.
+          {t("sidebar.omniDescription")}
         </p>
       </div>
     </aside>

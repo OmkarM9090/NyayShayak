@@ -1,0 +1,70 @@
+{
+  "appName": "Nyay Sahayak",
+  "auth": { "signIn": "সাইন ইন" },
+  "header": { "plan": "প্রফেশনাল প্ল্যান", "logout": "লগ আউট" },
+  "settings": { "title": "সেটিংস", "preferences": "পছন্দ", "language": "ভাষা" },
+  "sidebar": {
+    "today": "আজ",
+    "noChatsToday": "আজ এখনও কোনো চ্যাট নেই.",
+    "previous7Days": "গত 7 দিন",
+    "noRecentChats": "সাম্প্রতিক কোনো চ্যাট নেই.",
+    "omniTitle": "Nyay Sahayak Omni",
+    "omniDescription": "চ্যাট, বিশ্লেষণ এবং FIR খসড়ার জন্য একীভূত আইনি সহায়ক."
+  },
+  "common": {
+    "save": "সেভ",
+    "private": "প্রাইভেট",
+    "privateModeChat": "প্রাইভেট মোড চ্যাট ইতিহাস সেভ করে না.",
+    "privateModeAnalysis": "প্রাইভেট মোড বিশ্লেষণ ইতিহাস সেভ করে না.",
+    "privateModeFir": "প্রাইভেট মোড FIR ইতিহাস সেভ করে না.",
+    "guestLimitChat": "গেস্ট সীমা: 3টি মেসেজ.",
+    "guestLimitAnalysis": "গেস্ট সীমা: 1টি বিশ্লেষণ.",
+    "guestLimitFir": "গেস্ট সীমা: 1টি FIR.",
+    "loginToContinue": "চালিয়ে যেতে দয়া করে লগইন করুন"
+  },
+  "chat": {
+    "title": "Nyay Sahayak আইনি সহায়ক",
+    "subtitle": "AI আইনি নির্দেশনা, ডকুমেন্ট বিশ্লেষণ এবং FIR সহায়তা এক জায়গায়",
+    "example": "উদাহরণ: \"আমার ফোন চুরি হয়েছে. আমি কী করব?\"",
+    "initialExplanation": "নমস্কার. আমি আপনার আইনি সহায়ক. আপনি রেলওয়ে নিয়ম, সম্পত্তি চুক্তি বা চুরি সম্পর্কে প্রশ্ন করতে পারেন.",
+    "initialRule1": "স্পষ্ট এবং নির্দিষ্ট প্রশ্ন করুন.",
+    "initialRule2": "ভারতীয় প্রেক্ষাপটে ব্যবহারিক নির্দেশনা পাবেন.",
+    "initialGuidance": "বিষয়টি জরুরি হলে আইনজীবী বা স্থানীয় কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন.",
+    "placeholder": "আপনার আইনি প্রশ্ন এখানে লিখুন...",
+    "loading": "প্রাসঙ্গিক আইনি তথ্য খুঁজে উত্তর প্রস্তুত করা হচ্ছে...",
+    "disclaimer": "AI নির্দেশনা চূড়ান্ত আইনি পরামর্শ নয়. জরুরি বিষয়ে আইনজীবী বা স্থানীয় কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন.",
+    "errorMessage": "সহায়ক বর্তমানে উপলব্ধ নয়. আবার চেষ্টা করুন.",
+    "newChat": "নতুন চ্যাট",
+    "recentChats": "সাম্প্রতিক চ্যাট",
+    "noHistory": "এখনও চ্যাট ইতিহাস নেই.",
+    "contextUsed": "RAG প্রসঙ্গ ব্যবহার করা হয়েছে",
+    "generalGuidance": "সাধারণ আইনি নির্দেশনা",
+    "legalGuidance": "আইনি নির্দেশনা",
+    "rules": "নিয়ম",
+    "penalties": "জরিমানা",
+    "suspiciousClauses": "সন্দেহজনক ধারা",
+    "topRisks": "প্রধান ঝুঁকি",
+    "warnings": "সতর্কতা",
+    "whatYouShouldDo": "আপনার কী করা উচিত",
+    "actionPlan": "কর্মপরিকল্পনা",
+    "quantifiedImpact": "পরিমাপযোগ্য প্রভাব",
+    "applicableLaws": "প্রযোজ্য আইন",
+    "legalValidityFlags": "আইনি বৈধতার সূচক",
+    "risk": "ঝুঁকি",
+    "suggestions": {
+      "seeSteps": "ধাপ দেখুন",
+      "analyzeDocument": "ডকুমেন্ট বিশ্লেষণ করুন"
+    }
+  },
+  "fir": {
+    "title": "FIR / অভিযোগ জেনারেটর",
+    "subtitle": "আপনার সমস্যা সহজ ভাষায় লিখুন এবং প্রস্তুত অভিযোগ পান.",
+    "placeholder": "ঘটনার বিবরণ সহজ ভাষায় লিখুন...",
+    "generate": "FIR তৈরি করুন",
+    "generating": "AI তৈরি করছে...",
+    "generatedTitle": "তৈরি FIR খসড়া",
+    "copy": "কপি",
+    "copied": "কপি হয়েছে",
+    "download": "PDF ডাউনলোড"
+  }
+}

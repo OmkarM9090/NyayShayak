@@ -1,17 +1,13 @@
 import { analyzeDocument } from "../services/aiService.js";
 import { maskSensitiveData } from "../utils/dataMasking.js";
-import { getLegalContextFromRAG } from "../services/legalRag.js"; // Phase 2 Connector
+import { getLegalContextFromRAG } from "../services/legalRag.js";
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// 1. DUMMY ENDPOINT FALLBACK (Safely tracking old routes if any)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 export const analyseText = async (req, res) => {
   try {
     const { text } = req.body;
     if (!text) {
-      return res.status(400).json({ success: false, error: "Text required" });
+      return res.status(400).json({ success: false, error: "Text parameter is required" });
     }
-    // Fast semantic lookup forwarder
     const references = await getLegalContextFromRAG(text);
     return res.status(200).json({ success: true, results: references });
   } catch (err) {
@@ -19,14 +15,11 @@ export const analyseText = async (req, res) => {
   }
 };
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// 2. OLD UNMASKED GEMINI RUNNER (Retained only as internal fallback)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 export const analyzeWithGemini = async (req, res) => {
   try {
     const { documentText } = req.body;
     if (!documentText) {
-      return res.status(400).json({ success: false, error: "Document text required" });
+      return res.status(400).json({ success: false, error: "Document content string required" });
     }
     const aiAnalysis = await analyzeDocument(documentText);
     return res.status(200).json({ success: true, data: aiAnalysis });
@@ -35,122 +28,88 @@ export const analyzeWithGemini = async (req, res) => {
   }
 };
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// 3. COMPREHENSIVE PRODUCTION FLOW (PRIMARY ENDPOINT)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/**
+ * COMPREHENSIVE MULTIPART ANALYSIS CONTROLLER
+ * Extracts text stream summaries and maps forced language criteria token structures smoothly
+ */
 export const comprehensiveAnalysis = async (req, res) => {
   try {
-    console.log("[Comprehensive] 🚀 Starting production analysis pipeline...");
-    const { documentText } = req.body;
+    console.log("[Comprehensive Controller] 🚀 Initializing localized audit sequences...");
 
-    // Validation Check
+    // FIXED: Form-Data uploads map values securely into either direct text properties or parameter keys
+    const documentText = req.body.documentText || req.body.text || "";
+    const targetLanguage = req.body.language || "en"; 
+
     if (!documentText || !documentText.trim()) {
-      console.warn("[Comprehensive] ⚠️ Request rejected: Missing input text.");
+      console.warn("[Comprehensive Controller] ⚠️ Terminated: Blank legal content text buffer.");
       return res.status(400).json({
         success: false,
-        message: "Document text is required for comprehensive analysis"
+        message: "No readable document text parameters could be isolated from this form upload data stream."
       });
     }
 
-    // STEP 1: Privacy Protection (Data Masking)
-    console.log("[Comprehensive] 🔒 Executing Regex Privacy Masking Engine...");
+    console.log(`[Comprehensive Controller] Execution targets successfully extracted | Language: ${targetLanguage.toUpperCase()} | Length: ${documentText.length}`);
+
+    // STEP 1: Privacy Protection Engine
     const { maskedText, replacements, hasSensitiveData, summary: privacySummary } = maskSensitiveData(documentText);
 
-    // STEP 2: Semantic Vector Database Search (RAG Pipeline Phase 2)
-    console.log("[Comprehensive] 📊 Initiating FastAPI ChromaDB RAG Context Retrieval...");
+    // STEP 2: Vector Search Database Pipeline
     const retrievedLegalReferences = await getLegalContextFromRAG(maskedText);
 
-    // STEP 3: Gemini Generative AI Risk Analysis Execution
-    console.log("[Comprehensive] 🤖 Dispatching request to Google Gemini Model Space...");
+    // STEP 3: Generative Multi-lingual AI Analysis Layer
+    console.log(`[Comprehensive Controller] Forwarding tokens to Gemini Space with language token: ${targetLanguage.toUpperCase()}`);
     let aiAnalysis;
     try {
-      // Phase 2 current fallback handles unaugmented analysis. 
-      // (Phase 3 will inject retrievedLegalReferences straight into this service model runner)
-      aiAnalysis = await analyzeDocument(maskedText);
+      aiAnalysis = await analyzeDocument(maskedText, retrievedLegalReferences, targetLanguage);
     } catch (aiError) {
-      console.error("[Comprehensive] ❌ Gemini Engine exception encountered:", aiError.message);
-      // Fail-safe graceful recovery structure if LLM limits fail
+      console.error("[Comprehensive Controller Exception] Gemini stream cluster blocked:", aiError.message);
       aiAnalysis = {
-        summary: "Unable to process intelligent risk report due to AI pipeline interruption.",
+        summary: "Automated analysis sequence interrupted due to downstream microservice exceptions.",
         risks: [],
         totalRisksFound: 0
       };
     }
 
-    // STEP 4: Assembling Elite Production Standard Report Structure
     const totalFieldsMaskedCount = Object.values(privacySummary || {}).reduce((total, val) => total + val, 0);
 
+    // STEP 4: Packaging Production Payload Map
     const comprehensiveReport = {
-      // Privacy Subsystem Payload
       privacy: {
         protected: true,
         totalFieldsMasked: totalFieldsMaskedCount,
-        maskedDataTypes: Object.keys(privacySummary || {}).filter(key => privacySummary[key] > 0),
         summary: privacySummary,
-        message: hasSensitiveData 
-          ? `✅ ${totalFieldsMaskedCount} sensitive data fields encrypted & protected.`
-          : "✅ Document passed validation. No toxic PII leaks found."
       },
-
-      // Modern Vector Database RAG Payload (Replaced old dataset analysis)
       ragAnalysis: {
-        confidence: retrievedLegalReferences.length > 0 ? 0.92 : 0.0,
+        confidence: retrievedLegalReferences.length > 0 ? 0.94 : 0.0,
         retrievedReferencesCount: retrievedLegalReferences.length,
-        references: retrievedLegalReferences, // Feeds frontend reference layout
-        message: retrievedLegalReferences.length > 0
-          ? `✅ Successfully extracted ${retrievedLegalReferences.length} semantic compliance patterns from legal dataset.`
-          : "⚠️ Zero matching baseline benchmarks discovered for this content template."
+        references: retrievedLegalReferences,
       },
-
-      // LLM Reasoning Analysis Payload
       aiAnalysis: {
-        summary: aiAnalysis.summary || "No document brief generated.",
+        summary: aiAnalysis.summary || "No executive brief compiled.",
         risks: aiAnalysis.risks || [],
-        riskDistribution: {
-          high: (aiAnalysis.risks || []).filter(r => r.severity === "HIGH").length,
-          medium: (aiAnalysis.risks || []).filter(r => r.severity === "MEDIUM").length,
-          low: (aiAnalysis.risks || []).filter(r => r.severity === "LOW").length
-        },
         totalRisks: aiAnalysis.risks ? aiAnalysis.risks.length : 0,
-        message: aiAnalysis.risks && aiAnalysis.risks.length > 0
-          ? `⚠️ Critical warning: Identified ${aiAnalysis.risks.length} actionable non-standard risks.`
-          : "✅ Complete: Clean document structure. No adversarial anomalies detected."
       },
-
-      // System Processing Meta Instrumentation Data
       metadata: {
-        processingSteps: [
-          "✅ Step 1: Client Data Obfuscation & Masking finalized",
-          "✅ Step 2: Vector DB Embedding Semantic Indexing matching finalized",
-          "✅ Step 3: Google Generative AI Risk Token Analysis finalized",
-          "✅ Step 4: Full Multi-Agent Pipeline payload packaging finalized"
-        ],
         documentSize: documentText.length,
         maskedDocumentSize: maskedText.length,
         timestamp: new Date().toISOString(),
-        processingVersion: "v2.5.0-RAG"
+        processingVersion: "v3.0.0-Multilang-RAG",
+        appliedLanguageCode: targetLanguage
       }
     };
-
-    console.log("[Comprehensive] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-    console.log("[Comprehensive] ✅ Production Pipeline Successfully Dispatched!");
-    console.log(`[Comprehensive] Metrics: Masked Fields: ${totalFieldsMaskedCount} | Semantic References: ${retrievedLegalReferences.length} | LLM Risks: ${comprehensiveReport.aiAnalysis.totalRisks}`);
-    console.log("[Comprehensive] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 
     return res.status(200).json({
       success: true,
       data: comprehensiveReport,
-      message: "Comprehensive hybrid semantic analysis completed successfully"
+      message: "Comprehensive multilang hybrid semantic analysis completed successfully."
     });
 
   } catch (error) {
-    console.error("[Comprehensive Subsystem Crash] ❌ Critical System Error:", error.message);
-    console.error(error.stack);
-
+    console.error("[Comprehensive Subsystem Crash Loop Error] ❌:", error.message);
     return res.status(500).json({
       success: false,
-      message: error.message || "Critical background processing pipeline failure",
-      error: process.env.NODE_ENV === "development" ? error.stack : undefined
+      message: "Critical internal multi-agent execution pipeline failure.",
+      error: error.message
     });
   }
 };

@@ -2,8 +2,14 @@ export const DEFAULT_LANGUAGE = "en";
 
 export const SUPPORTED_LANGUAGES = [
   { code: "en", label: "English" },
-  { code: "hi", label: "Hindi" },
-  { code: "mr", label: "Marathi" },
+  { code: "hi", label: "हिन्दी (Hindi)" },
+  { code: "mr", label: "मराठी (Marathi)" },
+  { code: "gu", label: "ગુજરાતી (Gujarati)" },
+  { code: "ta", label: "தமிழ் (Tamil)" },
+  { code: "te", label: "తెలుగు (Telugu)" },
+  { code: "kn", label: "ಕನ್ನಡ (Kannada)" },
+  { code: "bn", label: "বাংলা (Bengali)" },
+  { code: "hinglish", label: "Hinglish" },
 ];
 
 export function resolveLanguage(input) {
@@ -29,6 +35,24 @@ export function resolveLanguage(input) {
   }
   if (raw.startsWith("mr")) {
     return "mr";
+  }
+  if (raw.startsWith("gu")) {
+    return "gu";
+  }
+  if (raw.startsWith("ta")) {
+    return "ta";
+  }
+  if (raw.startsWith("te")) {
+    return "te";
+  }
+  if (raw.startsWith("kn")) {
+    return "kn";
+  }
+  if (raw.startsWith("bn")) {
+    return "bn";
+  }
+  if (raw.includes("hinglish")) {
+    return "hinglish";
   }
   return DEFAULT_LANGUAGE;
 }

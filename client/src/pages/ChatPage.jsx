@@ -31,6 +31,12 @@ const ACTION_ROUTES = {
   "Analyze Document": "/analyze",
 };
 
+const SUGGESTION_LABEL_KEYS = {
+  "Generate FIR": "fir.generate",
+  "See Steps": "chat.suggestions.seeSteps",
+  "Analyze Document": "chat.suggestions.analyzeDocument",
+};
+
 const buildWelcomeMessage = (t) => ({
   role: "assistant",
   content: {
@@ -112,7 +118,7 @@ export default function ChatPage() {
       } else {
         setMessages([initialMessage]);
       }
-    } catch (e) {
+    } catch {
       setMessages([initialMessage]);
     }
     setIsInitializing(false);
@@ -149,7 +155,7 @@ export default function ChatPage() {
         ...prev,
         {
           role: "assistant",
-          content: "Please login to continue",
+          content: t("common.loginToContinue"),
           isError: true,
         },
       ]);
@@ -222,12 +228,12 @@ export default function ChatPage() {
             onClick={startNewChat}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 p-3 text-sm font-medium text-white transition hover:bg-indigo-500"
           >
-            <PlusCircle size={18} /> New Chat
+            <PlusCircle size={18} /> {t("chat.newChat")}
           </button>
         </div>
         <div className="flex-1 overflow-y-auto p-3 space-y-1">
           <div className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Recent Chats
+            {t("chat.recentChats")}
           </div>
           {sessions.map((sess) => (
             <button
@@ -244,7 +250,7 @@ export default function ChatPage() {
             </button>
           ))}
           {sessions.length === 0 && !isInitializing && (
-            <div className="px-2 py-4 text-xs text-slate-600 text-center">No chat history yet.</div>
+            <div className="px-2 py-4 text-xs text-slate-600 text-center">{t("chat.noHistory")}</div>
           )}
         </div>
       </div>
@@ -265,8 +271,8 @@ export default function ChatPage() {
               <p className="text-sm text-slate-400">{t("chat.example")}</p>
               <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-slate-400">
                 <PrivacyToggle value={privacyMode} onChange={setPrivacyModeState} />
-                <span>Private mode skips saving chat history.</span>
-                {isGuestUser() && <span className="text-amber-300">Guest limit: 3 messages.</span>}
+                <span>{t("common.privateModeChat")}</span>
+                {isGuestUser() && <span className="text-amber-300">{t("common.guestLimitChat")}</span>}
               </div>
             </div>
 
@@ -294,10 +300,10 @@ export default function ChatPage() {
                               : "rounded-tl-none border border-white/10 bg-[#121215] text-slate-200"
                         }`}
                       >
-                        <StructuredReply content={message.content} />
+                        <StructuredReply content={message.content} t={t} />
                         {message.role === "assistant" && !message.isError && (
                           <div className="mt-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-slate-500">
-                            <span>{message.contextUsed ? "RAG context used" : "General legal guidance"}</span>
+                            <span>{message.contextUsed ? t("chat.contextUsed") : t("chat.generalGuidance")}</span>
                             {message.createdAt && <span className="opacity-60">{new Date(message.createdAt).toLocaleTimeString()}</span>}
                           </div>
                         )}
@@ -311,7 +317,7 @@ export default function ChatPage() {
                               onClick={() => handleSuggestion(suggestion)}
                               className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-xs font-semibold text-indigo-200 transition hover:bg-indigo-500/20"
                             >
-                              {suggestion}
+                              {t(SUGGESTION_LABEL_KEYS[suggestion] || suggestion, suggestion)}
                             </button>
                           ))}
                         </div>
@@ -376,7 +382,7 @@ export default function ChatPage() {
   );
 }
 
-function StructuredReply({ content, file }) {
+function StructuredReply({ content, file, t }) {
   if (file) {
     return (
       <div className="space-y-2">
@@ -384,7 +390,7 @@ function StructuredReply({ content, file }) {
           <div className="whitespace-pre-wrap break-words">{content}</div>
         )}
         <div className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs text-white/90">
-          Attached: {file.name}
+          {t("chat.attached")}: {file.name}
         </div>
       </div>
     );
@@ -394,7 +400,7 @@ function StructuredReply({ content, file }) {
     return <div className="whitespace-pre-wrap break-words">{content}</div>;
   }
 
-  const topic = content.topic || content.document_type || "Legal Guidance";
+  const topic = content.topic || content.document_type || t("chat.legalGuidance");
   const explanation = content.simple_explanation || content.reason_for_decision;
 
   return (
@@ -410,7 +416,7 @@ function StructuredReply({ content, file }) {
           )}
           {content.risk_level && (
             <span className={`rounded px-2 py-1 ${content.risk_level === 'LOW' ? 'bg-green-500/20 text-green-300' : content.risk_level === 'HIGH' ? 'bg-red-500/20 text-red-300' : 'bg-yellow-500/20 text-yellow-300'}`}>
-              Risk: {content.risk_level}
+              {t("chat.risk")}: {content.risk_level}
             </span>
           )}
           {content.final_decision && (
@@ -426,37 +432,37 @@ function StructuredReply({ content, file }) {
       )}
 
       {Array.isArray(content.rules) && content.rules.length > 0 && (
-        <SectionList title="Rules" items={content.rules} />
+        <SectionList title={t("chat.rules")} items={content.rules} />
       )}
       {Array.isArray(content.penalties) && content.penalties.length > 0 && (
-        <SectionList title="Penalties" items={content.penalties} />
+        <SectionList title={t("chat.penalties")} items={content.penalties} />
       )}
       
       {Array.isArray(content.suspicious_clauses) && content.suspicious_clauses.length > 0 && (
-        <SectionList title="Suspicious Clauses" items={content.suspicious_clauses} />
+        <SectionList title={t("chat.suspiciousClauses")} items={content.suspicious_clauses} />
       )}
       {Array.isArray(content.top_risks) && content.top_risks.length > 0 && (
-        <SectionList title="Top Risks" items={content.top_risks} />
+        <SectionList title={t("chat.topRisks")} items={content.top_risks} />
       )}
       {Array.isArray(content.warnings) && content.warnings.length > 0 && (
-        <SectionList title="Warnings" items={content.warnings} />
+        <SectionList title={t("chat.warnings")} items={content.warnings} />
       )}
 
       {Array.isArray(content.user_guidance) && content.user_guidance.length > 0 && (
-        <SectionList title="What You Should Do" items={content.user_guidance} />
+        <SectionList title={t("chat.whatYouShouldDo")} items={content.user_guidance} />
       )}
       {Array.isArray(content.what_user_should_do) && content.what_user_should_do.length > 0 && (
-        <SectionList title="Action Plan" items={content.what_user_should_do} />
+        <SectionList title={t("chat.actionPlan")} items={content.what_user_should_do} />
       )}
 
       {Array.isArray(content.quantified_impact) && content.quantified_impact.length > 0 && (
-        <SectionList title="Quantified Impact" items={content.quantified_impact} />
+        <SectionList title={t("chat.quantifiedImpact")} items={content.quantified_impact} />
       )}
       
       {content.law_reference && content.law_reference.applicable && (
         <div className="mt-4 rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-4">
           <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
-            Applicable Laws
+            {t("chat.applicableLaws")}
           </div>
           {Array.isArray(content.law_reference.laws) && content.law_reference.laws.length > 0 && (
             <ul className="mb-2 list-none space-y-1">
@@ -477,7 +483,7 @@ function StructuredReply({ content, file }) {
 
       {Array.isArray(content.legal_validity_flags) && content.legal_validity_flags.length > 0 && (
         <SectionList
-          title="Legal Validity Flags"
+          title={t("chat.legalValidityFlags")}
           items={content.legal_validity_flags.map((flag) => {
             if (typeof flag === 'string') return flag;
             const parts = [flag.type, flag.clause, flag.law, flag.explanation]

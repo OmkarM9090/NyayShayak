@@ -4,12 +4,32 @@
     "signIn": "Sign In"
   },
   "header": {
-    "plan": "Professional Plan"
+    "plan": "Professional Plan",
+    "logout": "Logout"
   },
   "settings": {
     "title": "Settings",
     "preferences": "Preferences",
     "language": "Language"
+  },
+  "sidebar": {
+    "today": "Today",
+    "noChatsToday": "No chats yet today.",
+    "previous7Days": "Previous 7 Days",
+    "noRecentChats": "No recent chats.",
+    "omniTitle": "Nyay Sahayak Omni",
+    "omniDescription": "Unified legal assistant for chat, analysis, and FIR drafting."
+  },
+  "common": {
+    "save": "Save",
+    "private": "Private",
+    "privateModeChat": "Private mode skips saving chat history.",
+    "privateModeAnalysis": "Private mode skips saving analysis history.",
+    "privateModeFir": "Private mode skips saving FIR history.",
+    "guestLimitChat": "Guest limit: 3 messages.",
+    "guestLimitAnalysis": "Guest limit: 1 analysis.",
+    "guestLimitFir": "Guest limit: 1 FIR.",
+    "loginToContinue": "Please login to continue"
   },
   "chat": {
     "title": "Nyay Sahayak Legal Assistant",
@@ -23,7 +43,29 @@
     "loading": "Fetching relevant legal context and preparing a response...",
     "disclaimer": "AI guidance is not legal advice. For urgent matters, contact a lawyer or local authorities.",
     "errorMessage": "The assistant is currently unavailable. Please try again later.",
-    "errorGuidance": "If the issue is urgent, consult a legal expert."
+    "errorGuidance": "If the issue is urgent, consult a legal expert.",
+    "newChat": "New Chat",
+    "recentChats": "Recent Chats",
+    "noHistory": "No chat history yet.",
+    "attached": "Attached",
+    "contextUsed": "RAG context used",
+    "generalGuidance": "General legal guidance",
+    "legalGuidance": "Legal Guidance",
+    "rules": "Rules",
+    "penalties": "Penalties",
+    "suspiciousClauses": "Suspicious Clauses",
+    "topRisks": "Top Risks",
+    "warnings": "Warnings",
+    "whatYouShouldDo": "What You Should Do",
+    "actionPlan": "Action Plan",
+    "quantifiedImpact": "Quantified Impact",
+    "applicableLaws": "Applicable Laws",
+    "legalValidityFlags": "Legal Validity Flags",
+    "risk": "Risk",
+    "suggestions": {
+      "seeSteps": "See Steps",
+      "analyzeDocument": "Analyze Document"
+    }
   },
   "fir": {
     "title": "FIR / Complaint Generator",
@@ -35,5 +77,19 @@
     "copy": "Copy",
     "copied": "Copied",
     "download": "Download PDF"
+  },
+  "analyze": {
+    "engineTitle": "Automated Compliance Audit Space",
+    "briefHeading": "Executive Document Brief",
+    "risksFoundLabel": "Actionable Anomalies & Friction Points",
+    "zeroRisksMessage": "Passed Verification: No toxic adversarial compliance strings captured.",
+    "awaitingUploadTitle": "No Analysis Report Active",
+    "awaitingUploadDesc": "Upload raw legal document streams here. Local RAG engines will auto-trigger baseline parameter scanning routines instantly.",
+    "uploadHint": "Select Document File",
+    "dockPlaceholder": "Awaiting legal payload attachment data limits...",
+    "dockProcessing": "Auditing...",
+    "dockExecute": "Run Audit Pipeline",
+    "noFileError": "Please upload a document first.",
+    "genericError": "Failed compiling document analysis report."
   }
 }

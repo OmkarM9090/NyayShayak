@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-body: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-display: "Instrument Serif", serif;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@theme {
+  /* The "Modern Juris" Hybrid Theme for Nyay Sahayak */
+  --color-brand-base: #F9F8F6;    /* Crisp paper white: Main background */
+  --color-brand-surface: #EFE9E3; /* Soft cream: Sidebars, cards, and input backgrounds */
+  --color-brand-accent: #4F959D;  /* Trustworthy teal: Buttons, icons, and hover states */
+  --color-brand-primary: #2A3663; /* Deep navy blue: Main text, headers, and dark buttons */
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }

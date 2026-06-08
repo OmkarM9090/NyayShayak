@@ -1,0 +1,39 @@
+{
+  "appName": "Nyay Sahayak",
+  "auth": {
+    "signIn": "Sign In"
+  },
+  "header": {
+    "plan": "Professional Plan"
+  },
+  "settings": {
+    "title": "Settings",
+    "preferences": "Preferences",
+    "language": "Language"
+  },
+  "chat": {
+    "title": "RAG Legal Chatbot",
+    "subtitle": "TF-IDF retrieval + Gemini response + legal action suggestions",
+    "example": "Example: \"Mera mobile chori ho gaya kya karu?\"",
+    "initialExplanation": "Namaste. Main aapka legal assistant hoon. Aap railway rules, property agreement, ya stolen items ke baare mein puch sakte hain.",
+    "initialRule1": "Clear aur specific sawal puchiye.",
+    "initialRule2": "Indian context me practical guidance milegi.",
+    "initialGuidance": "Agar matter urgent ho to lawyer ya local authorities se baat karein.",
+    "placeholder": "Apna legal sawal yahan likhiye...",
+    "loading": "Relevant legal context fetch karke answer prepare ho raha hai...",
+    "disclaimer": "AI guidance final legal opinion nahi hai. Urgent matters ke liye lawyer ya local authorities se baat karein.",
+    "errorMessage": "Assistant abhi available nahi hai. Thodi der baad try kijiye.",
+    "errorGuidance": "Agar issue urgent hai to legal expert se consult karein."
+  },
+  "fir": {
+    "title": "FIR / Complaint Generator",
+    "subtitle": "Apni problem simple language me likhiye aur ready-to-submit complaint banaiye.",
+    "placeholder": "Incident details simple language me likhiye...",
+    "generate": "Generate FIR",
+    "generating": "AI generate kar raha hai...",
+    "generatedTitle": "Generated FIR Draft",
+    "copy": "Copy",
+    "copied": "Copied",
+    "download": "Download PDF"
+  }
+}

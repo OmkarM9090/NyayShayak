@@ -1,0 +1,54 @@
+===========================================
+🔧 FIX: Create New API Key
+===========================================
+
+Your current API key is from an older project that doesn't support the new Gemini models.
+
+STEP-BY-STEP FIX:
+
+1. Open this link:
+   https://aistudio.google.com/app/apikey
+
+2. Click the "+ Create API key" button
+
+3. SELECT: "Create API key in new project"
+   (NOT "Create API key in existing project")
+
+4. WAIT for the key to be generated (takes 10-30 seconds)
+
+5. Copy the ENTIRE key (it starts with "AIza...")
+
+6. Open: backend/.env
+
+7. Replace the line:
+   GEMINI_API_KEY=AIzaSyAk61G2cdRim-uyJP3pMg4AwPwgfa2Bx_w
+   
+   With:
+   GEMINI_API_KEY=your_brand_new_key_here
+
+8. Save the file
+
+9. Run this to test:
+   node detailed-diagnostic.js
+
+10. Should show: ✅ SUCCESS!
+
+===========================================
+
+WHY THIS IS NEEDED:
+
+Your current project (gen-lang-client-0300653964) was created 
+before the new Gemini models were available. Creating a key in 
+a NEW project will automatically have access to all current models.
+
+===========================================
+
+After creating the new key, test it:
+
+C:\MERN Practice\Nyay-Sahayak\backend> node detailed-diagnostic.js
+
+Expected output:
+✅ SUCCESS!
+Response: Hello! 👋 ...
+
+===========================================

@@ -1,0 +1,39 @@
+{
+  "appName": "Nyay Sahayak",
+  "auth": {
+    "signIn": "Sign In"
+  },
+  "header": {
+    "plan": "Professional Plan"
+  },
+  "settings": {
+    "title": "Settings",
+    "preferences": "Preferences",
+    "language": "Language"
+  },
+  "chat": {
+    "title": "Nyay Sahayak Legal Assistant",
+    "subtitle": "AI legal guidance, document analysis, and FIR support in one place",
+    "example": "Example: \"My phone was stolen. What should I do?\"",
+    "initialExplanation": "Hello. I am your legal assistant. You can ask about railway rules, property agreements, or stolen items.",
+    "initialRule1": "Ask a clear and specific question.",
+    "initialRule2": "You will get practical guidance for the Indian context.",
+    "initialGuidance": "If the matter is urgent, contact a lawyer or local authorities.",
+    "placeholder": "Type your legal question here...",
+    "loading": "Fetching relevant legal context and preparing a response...",
+    "disclaimer": "AI guidance is not legal advice. For urgent matters, contact a lawyer or local authorities.",
+    "errorMessage": "The assistant is currently unavailable. Please try again later.",
+    "errorGuidance": "If the issue is urgent, consult a legal expert."
+  },
+  "fir": {
+    "title": "FIR / Complaint Generator",
+    "subtitle": "Describe your issue in simple language and generate a ready-to-submit complaint.",
+    "placeholder": "Write the incident details in simple language...",
+    "generate": "Generate FIR",
+    "generating": "AI is generating...",
+    "generatedTitle": "Generated FIR Draft",
+    "copy": "Copy",
+    "copied": "Copied",
+    "download": "Download PDF"
+  }
+}

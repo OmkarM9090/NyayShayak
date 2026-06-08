@@ -21,7 +21,7 @@ STEP-BY-STEP FIX:
 6. Open: backend/.env
 
 7. Replace the line:
-   GEMINI_API_KEY=AIzaSyAk61G2cdRim-uyJP3pMg4AwPwgfa2Bx_w
+   GEMINI_API_KEY=
    
    With:
    GEMINI_API_KEY=your_brand_new_key_here

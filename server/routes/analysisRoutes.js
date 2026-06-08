@@ -23,7 +23,7 @@ router.post("/analyse", analyseText);
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // POST /api/analyze-with-gemini
 // Uses Google Gemini for intelligent risk analysis
-router.post("/analyze-with-gemini", analyzeWithGemini);
+// router.post("/analyze-with-gemini", analyzeWithGemini);
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ROUTE 3: Comprehensive Analysis (RECOMMENDED)
